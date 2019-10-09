@@ -81,8 +81,6 @@ function isFormValid() {
         destinationText.text("");
     }
 
-    // First Train Time Validator
-    // console.log("hhmmKeyRegExp: ", hhmmKeyRegExp.test(firstTrainTime));
     if (!(hhmmKeyRegExp.test(firstTrainTime))) {
         firstTrainTimeInput.addClass("is-invalid");
         firstTrainTimeText.text("Did you forget the colon? Don't forget the format HH:mm");
@@ -93,7 +91,6 @@ function isFormValid() {
         firstTrainTimeText.text("");
     }
 
-    // Frequency Validator
     if (isNaN(frequency) || (frequency <= 0)) {
         frequencyInput.addClass("is-invalid");
         frequencyText.text("How often do you want the train to arrive? Choose a number between 1-1440!");
@@ -187,7 +184,6 @@ database.ref().on("child_added", function (snapshot) {
 
     row.appendTo(tableSchedule);
 
-    // Handle the errors
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
