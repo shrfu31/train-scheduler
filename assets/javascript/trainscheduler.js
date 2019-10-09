@@ -47,7 +47,7 @@ $("#add-train").on("click", function (event) {
         database.ref().push(dbTrainRecord);
 
         console.log(dbTrainRecord)
-        console.log("Train Successfully Added");
+        //console.log("Train Added");
         clearForm();
     }
 });
@@ -122,7 +122,7 @@ function clearForm() {
     frequencyInput.val("");
 };
 
-function nextArrival(firstTime, tFrequency) {
+function nextArrivalFunction (firstTime, tFrequency) {
 
     firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
     diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -133,7 +133,7 @@ function nextArrival(firstTime, tFrequency) {
     return moment(nextTrain).format("HH:mm");
 };
 
-function minutesAway(firstTime, tFrequency) {
+function minutesAwayFunction (firstTime, tFrequency) {
     firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
     diffTime = moment().diff(moment(firstTimeConverted), "minutes");
     tRemainder = diffTime % tFrequency;
@@ -146,8 +146,8 @@ database.ref().on("child_added", function (snapshot) {
 
     firstTrainTime = snapshot.val().firstTrainTime;
     frequency = snapshot.val().frequency;
-    nextArrival = nextArrival(firstTrainTime, frequency);
-    minutesAway = minutesAway(firstTrainTime, frequency);
+    nextArrival = nextArrivalFunction(firstTrainTime, frequency);
+    minutesAway = minutesAwayFunction(firstTrainTime, frequency);
 
     row = $('<tr id="' + snapshot.key + '">');
     row.addClass("row-class");
