@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <title>Do the trains run on time?</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="jumbotron bg-dark text-light text-center">
+          <h1>Just The Ticket!</h1>
+          <h4>Blowing Smoke and Chugging Along</h4>
+      </div>
+      <!-- CURRENT TRAIN SCHEDULE-->
+      <section class="card border-primary">
+        <div class="card-header text-light bg-primary">
+            Current Train Schedule
+         </div>
+         <div class="card-body">
+           <small>
+             <table class="table" id="schedule-table">
+               <tr>
+                 <th>Train Name</th>
+                 <th>Destination</th>
+                 <th>First Train Time</th>
+                 <th>Frequency (minutes)</th>
+                 <th>Next Arrival</th>
+                 <th>Next Boarding in ...</th>
+               </tr>
+               <tr></tr>
+               <tr></tr>
+             </table>
+           
+             </div>
+           </small>
+         </div>
+       </section>
+      <br>
+      <!-- ADD TRAIN FORM-->
+      <section class="card border-primary">
+        <div class="card-header text-light bg-primary">
+            Add Train 
+        </div>
+        <div class="card-body">
+          <small>
+            <form role="form" action="">
+            
+              <div class="form-group">
+                <label for="train-name-input">Train Name</label>
+                <input type="text" class="form-control form-control-sm" id="train-name-input" placeholder="Train Name...">
+                <span class="text-danger" id="train-name"></span>
+              </div>
+              <div class="form-group">
+                <label for="destination-input">Destination</label>
+                <input type="text" class="form-control form-control-sm" id="destination-input" placeholder="Destination...">
+                <span class="text-danger" id="destination"></span>
+              </div>
+              <div class="form-group">
+                <label for="first-train-time-input">First Train Time (HH:mm 24 hour clock)</label>
+                <input type="text" class="form-control form-control-sm" id="first-train-time-input" placeholder="HH:mm">
+                <span class="text-danger" id="first-train-time"></span>
+              </div>
+              <div class="form-group">
+                <label for="frequency-input">Frequency (in minutes 1 to 1440)</label>
+                <input type="text" class="form-control form-control-sm" id="frequency-input" placeholder="Frequency (min)">
+                <span class="text-danger" id="frequency"></span>
+              </div>
+              <button class="btn btn-primary" id="add-train" type="submit">Submit</button>
+            </form>
+          </small>
+        </div>
+      </section>
+    </main>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" ></script>
+
+    <script src="assets/javascript/trainscheduler.js"></script>
+  </body>
+</html>
